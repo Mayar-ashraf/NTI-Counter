@@ -1,0 +1,28 @@
+body{
+    padding-top: 250px;
+   justify-self: center;
+   text-align: center;
+   font-size: 25px;
+   background-color: beige;
+
+}
+#timeout{
+    color: red;
+}
+#counter{
+    color:green;
+}
+#rstBtn{
+    border-radius: 20px;
+    height: 30px;
+    width: 190px;
+    font-size: 20px;
+    background-color:darkcyan;
+    margin-left: 30px
+}
+#content{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 5px solid rgba(225, 225, 225, .2);
+    border-radius: 30px;
+    padding: 70px;
+}
