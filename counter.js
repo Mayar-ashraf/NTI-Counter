@@ -13,9 +13,11 @@ startCounter();
 function startCounter(){
     counterElement.innerText = '';
     counter = prompt("Enter your counter value in seconds please!");
-    while(Number(counter) < 0){
-        counter = prompt("Enter a proper time value please");
+    while(Number(counter) < 0 || counter === null){
+        counter = prompt("Enter a proper time value please!");
     }
+    console.log(counter);
+    
     counterElement.style.color = "green";
 
     myInterval = setInterval( function(){
