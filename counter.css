@@ -1,28 +1,76 @@
+*{
+  font-family: system-ui;
+}
 body{
+    
+     background-image: url("background.jpg");
+    background-color: #cccccc; 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; /* centers the image horizontally and vertically */
+    
     padding-top: 250px;
-   justify-self: center;
-   text-align: center;
-   font-size: 25px;
-   background-color: beige;
+    text-align: center;
+    font-size: 20px;
+   
+}
+#form{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 5px solid rgba(225, 225, 225, .2);
+    backdrop-filter: blur(50px);
+    border-radius: 30px;
+    justify-self: center;
+    text-align: center;
+    height: 50%;
+    padding: 50px;
 
 }
 #timeout{
     color: red;
 }
 #counter{
-    color:green;
+    color:cadetblue;
 }
-#rstBtn{
-    border-radius: 20px;
-    height: 30px;
+#rstBtn, #counterBtn{
+    border-radius: 30px;
+    justify-self: center;
+    height: 50px;
     width: 190px;
     font-size: 20px;
-    background-color:darkcyan;
-    margin-left: 30px
+    background-color:lightgrey;
+    color: black;
+    padding: 5px;
+    margin-top: 20px;
+    border: none;
 }
-#content{
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: 5px solid rgba(225, 225, 225, .2);
-    border-radius: 30px;
-    padding: 70px;
+#nameLabel, #timeLabel {
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+}
+#nameLabel{
+    margin-right: 30px;
+}
+#eventName, #timeRemaining{
+
+    width: 230px;
+    font-size: 18px;
+    padding: 10px;
+    padding-left: 15px;
+    border-radius: 22px;
+    margin: 20px;
+    border: none;
+    text-align: center;
+
+}
+#eventName{
+    padding-right: 20px;
+}
+#rstBtn:hover{
+   background-color: darkgray;
+    color: white;
+}
+#counterBtn:hover{
+    background-color: darkgray;
+    color: white;
 }
