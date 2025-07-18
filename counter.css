@@ -25,13 +25,7 @@ body{
     padding: 50px;
 
 }
-#timeout{
-    color: red;
-}
-#counter{
-    color:cadetblue;
-}
-#rstBtn, #counterBtn{
+#counterBtn{
     border-radius: 30px;
     justify-self: center;
     height: 50px;
@@ -65,10 +59,6 @@ body{
 }
 #eventName{
     padding-right: 20px;
-}
-#rstBtn:hover{
-   background-color: darkgray;
-    color: white;
 }
 #counterBtn:hover{
     background-color: darkgray;

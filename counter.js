@@ -1,13 +1,5 @@
 var counterElement = document.getElementById('counter');
-var timeoutMsg = document.getElementById('timeout')
-var resetBtn = document.getElementById('rstBtn');
-var myInterval;
-let repeat = 0;
-var time;
-var eventName;
-resetBtn.style.display = "none";
-timeoutMsg.style.display = "none";
-
+events = [];
 function isValidForm(){
     var eventName = document.getElementById('eventName').value;
     var time = document.getElementById('timeRemaining').value;
@@ -27,75 +19,38 @@ function isValidForm(){
 document.getElementById('form').addEventListener('submit', function(event){
     event.preventDefault();
     if(isValidForm()){
-        var nameInput = document.getElementById('eventName');
-        var timeInput = document.getElementById('timeRemaining');
-        var nameLabel = document.getElementById('nameLabel');
-        var timeLabel = document.getElementById('timeLabel');
-        var startBtn = document.getElementById('counterBtn');
-        var mainLabel = document.getElementById('mainLabel');
-        time = timeInput.value;
-        eventName = nameInput.value;
-
-        nameLabel.style.display = "none";
-        timeLabel.style.display = "none";
-        nameInput.style.display = "none";
-        timeInput.style.display = "none";
-        startBtn.style.display = "none";
-        mainLabel.style.display = "none";
         startCounter();
     }
 })
 
 function startCounter(){
+    
+    var nameInput = document.getElementById('eventName');
+    var timeInput = document.getElementById('timeRemaining');
 
-    console.log(time);
-    counterElement.style.color = "cadetblue";
-    resetBtn.style.display = "none";
-    counterElement.style.display = "inline";
+    let time = timeInput.value;
+    let eventName = nameInput.value;
 
-    myInterval = setInterval( function(){
+    var belowForm = document.createElement('h4');
+    document.body.appendChild(belowForm);
+
+    nameInput.value = '';
+    timeInput.value = '';
+
+    let myInterval = setInterval( function(){
         time --;
-        counterElement.innerText = `Time Remaining for Event "${eventName}": ${time} seconds`;
+        belowForm.innerText = `Time Remaining for Event "${eventName}": ${time} seconds.`;
+        belowForm.id= myInterval;
         console.log(time);
-        if (time == 3){
-            timeoutMsg.innerText = `Almost There!`;
-            timeoutMsg.style.display = "block";
-            timeoutMsg.style.color = "white";
+        if (time <= 3){
+            belowForm.innerText += ` Almost There! ⏰`;
+            belowForm.style.color = "white";
         }
         if (time == 0){
 
             console.log("TIME OUT!");
-            timeoutMsg.innerText = `FINALLY! \nEvent "${eventName}" has started! ⏰`;
-            timeoutMsg.style.display = "block";
-            timeoutMsg.style.color= "black";
-            resetBtn.style.display = "block";
-            counterElement.style.display = "none";
-            console.log("myIntervall ",myInterval);
-            clearInterval(myInterval);
+            alert(`FINALLY! \nEvent "${eventName}" has started! ⏰`);
+            belowForm.remove();
         }
     }, 1000);
 }
-resetBtn.addEventListener('click', function(event){
-
-    event.preventDefault();
-    resetBtn.style.display = "none";
-    timeoutMsg.style.display = "none";
-    counterElement.style.display = "none";
-    var nameInput = document.getElementById('eventName');
-    var timeInput = document.getElementById('timeRemaining');
-    var nameLabel = document.getElementById('nameLabel');
-    var timeLabel = document.getElementById('timeLabel');
-    var startBtn = document.getElementById('counterBtn');   
-    var mainLabel = document.getElementById('mainLabel');
-
-    nameLabel.style.display = "inline";
-    timeLabel.style.display = "inline";
-    nameInput.style.display = "inline";
-    timeInput.style.display = "inline";
-    startBtn.style.display = "inline";
-    mainLabel.style.display = "block";
-
-    nameInput.value = '';
-    timeInput.value = '';
-    
-});
